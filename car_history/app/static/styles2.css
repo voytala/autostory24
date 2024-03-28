@@ -1,0 +1,591 @@
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.color1{
+	--menu-background: #333;
+	--menu-button: #4CAF50;
+	--menu-button-hover: #45a049;
+	--file-background: lightblue;
+	--program-text-background: grey;
+	--code-fragment-background: lightpink;
+	--tabs-background: lightgrey;
+	--reg-vehicle-button: lightyellow;
+	--reg-vehicle-button-hover: green;
+	--reg-workshop-button: lightgrey;
+	--reg-workshop-button-hover: green;
+	--tab-text-background: purple;
+}
+
+.color2{
+	--menu-background: rgb(90, 120, 90);
+	--menu-button: rgb(30,170,40);
+	--menu-button-hover: rgb(200,255,0);
+	--file-background: rgb(30,100,0);
+	--program-text-background: rgb(120,180,100);
+	--code-fragment-background: rgb(40,120,0);
+	--tabs-background: rgb(180,205,165);
+	--tab-button: #4CAF50;
+	--tab-button-hover: yellow;
+	--tab-text-background: rgb(80,120,60);
+}
+
+.menu-panel{
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.menu-button-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+	justify-content: space-between; /* Rozłożenie logo i przycisków na panelu */
+}
+
+.menu-panel {
+	display: flex;
+	align-items: left;
+	justify-content: space-between; /* Rozłożenie logo i przycisków na panelu */
+	justify-content: flex-end;
+	background-color: var(--menu-background);
+	width: 100%;
+	height: 80px;
+	min-height: 50px;	
+}
+
+.logo-box {
+	width: 50%;
+	height: 100%;
+	
+}
+
+
+.menu-logo {
+	display: flex;
+	width: 95%; /* Dostosuj szerokość logo */
+    max-width: 500px;
+	height: 100%; /* Automatycznie dostosuj wysokość zachowując proporcje */
+}
+
+.menu-button {
+	display: inline-block;
+    height: 90%;
+    width: 24%;
+    max-width: 200px;
+    background-color: var(--menu-button);
+	user-select: none;
+	font-size: 18px;
+	justify-content: center;
+    align-items: center;
+	text-align: center;
+	display: flex;
+	box-sizing: border-box;
+	border: 1px solid black;
+	margin: 2px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-weight: bold;
+	color: black;
+    text-decoration: none;
+}
+
+.menu-button:hover {
+    background-color: var(--menu-button-hover);
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.app{
+	margin: 0 auto;
+	height: calc(60vh - 80px);
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.left{
+	display: flex;
+	width: 20%;
+	height: 100%;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+.center{
+	display: flex;
+	width: 60%;
+	height: 100%;
+    background-color: #b5b1b1;
+	box-sizing: border-box;
+	border: 1px solid black;
+	flex-wrap: wrap;
+}
+
+.title {
+	width: 100%;
+	height: 60%;
+    text-align: center;
+    font-size: 24px;
+    color: #000000;
+
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%; /* Dodane, aby zapewnić wyśrodkowanie w pionie */
+}
+
+.vin-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	width: 250px;
+	height: 40%;
+    max-width: 420px;
+    margin: 0px auto;
+}
+
+.vin-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	width: 300px;
+	height: 100%;
+    max-width: 420px;
+    margin: 0px auto;
+}
+
+.info-icon {
+    font-size: 24px;
+    color: #fff;
+    background-color: #3498db; /* Dodane, aby ustawić kolor tła ikony */
+    border-radius: 50%; /* Dodane, aby uzyskać kształt koła */
+    width: 30px; /* Dodane, aby ustawić szerokość ikony */
+    height: 30px; /* Dodane, aby ustawić wysokość ikony */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.vin-input {
+    width: 250px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.generate-btn {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.generate-btn:hover {
+    background-color: #45a049;
+}
+
+/* Tooltip */
+.info-icon:hover::after {
+    display: block;
+    position: absolute;
+    background-color: #555;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: -25px;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.right{
+	display: flex;
+	width: 20%;
+	height: 100%;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+
+#btn_cont{
+  position: relative;
+  margin: 0 auto;
+  /* NOT IMPORTANT */
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background:white;
+}
+.btn{
+  display: block;
+  position:absolute;
+  width: 100%;
+  height:100%;
+  cursor: pointer;  
+}
+
+.right-btn {
+  background:rgb(27, 115, 145);
+  transform: skewX(-45deg);
+  right:-50%;
+  width:100%;
+  justify-content: center;
+    align-items: center;
+	display: flex;
+}
+
+.left-btn {
+  background:rgb(223, 99, 16);
+  transform: skewX(-45deg);
+  left: -50%;
+  width:100%;
+  justify-content: center;
+    align-items: center;
+	display: flex;
+}
+
+.right-btn:hover, .left-btn:hover {
+  background:rgb(28, 205, 123);
+}
+.right-btn:hover span, .left-btn:hover span{
+   color:#c74523;
+}
+
+.left-btn-text{
+  text-align: center;
+  color: black;
+	font-size: 2vmin;
+  position: relative;
+  left: 25%;
+  transform:skewX(45deg);
+}
+
+.right-btn-text {
+  text-align: center;
+  color: black;
+  font-size: 2vmin;
+  position: relative;
+  right: 25%;
+  transform:skewX(45deg);
+}
+
+.registration {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	height: calc(40vh);
+	flex: 1 0 auto;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+.workshop-form {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+wr_h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+label input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.info-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.report{
+    margin: 50px auto;
+    height: calc(100vh - 80px);
+    max-width: 1000px;
+    display: block;
+}
+
+.info-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.vehicle-info{
+    height: 100px;
+    width: 100%;
+}
+
+
+.repair-report {
+    margin-top: 120px; /* Dla odstępu między raportami */
+}
+
+.repair {
+    border: 1px solid #ddd; /* Obramowanie dla każdego raportu */
+    margin-bottom: 10px;  /* Dla odstępu między raportami */
+    padding: 10px;
+}
+
+.repair-date,
+.repair-service,
+.repair-mile,
+.repair-workshop {
+    display: inline-block; /* Ustawienie na inline-block, aby były obok siebie */
+}
+
+.repair-date strong,
+.repair-service strong,
+.repair-mile strong,
+.repair-workshop strong {
+    display: block; /* Ustawienie na block, aby etykiety były jedna pod drugą */
+}
+
+.repair-date {
+    width: 20%;
+}
+.repair-mile{
+    width: 20%;
+}
+
+.repair-service{
+    width: 30%;
+}
+
+.repair-workshop{
+    width: 20%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .menu-button-container {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        align-items: left;
+        justify-content: space-between; /* Rozłożenie logo i przycisków na panelu */
+    }
+    
+    .menu-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: space-between; /* Rozłożenie logo i przycisków na panelu */
+        justify-content: flex-end;
+        background-color: var(--menu-background);
+        width: 100%;
+        height: 160px;
+    }
+    
+    .logo-box {
+        width: 100%;
+        height: 50%;
+        
+    }
+    
+    
+    .menu-logo {
+        display: flex;
+        width: 95%; /* Dostosuj szerokość logo */
+        max-width: 500px;
+        height: 100%; /* Automatycznie dostosuj wysokość zachowując proporcje */
+    }
+
+    .menu-button {
+        display: inline-block;
+        height: 92%;
+        width: 24%;
+        background-color: var(--menu-button);
+        user-select: none;
+        font-size: 16px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        box-sizing: border-box;
+        border: 1px solid black;
+        margin: 1px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
+	
+    .app{
+        margin: 0 auto;
+        height: calc(75vh - 160px);
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .left, .right{
+        display: flex;
+        width: 0%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 1px solid black;
+    }
+    
+    .center{
+        display: flex;
+        width: 95%;
+        height: 100%;
+        background-color: #b5b1b1;
+        box-sizing: border-box;
+        border: 1px solid black;
+        flex-wrap: wrap;
+    }
+    
+    .title {
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        font-size: 24px;
+        color: #333;
+    
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .vin-form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 250px;
+        height: 50%;
+        max-width: 420px;
+        margin: 0px auto;
+    }
+
+    .registration {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 25%;
+        flex: 1 0 auto;
+        box-sizing: border-box;
+        border: 1px solid black;
+    }
+	
+    .right-btn {
+        background:rgb(27, 115, 145);
+        width:100%;
+        justify-content: center;
+          align-items: center;
+          display: flex;
+          transform: skewX(0deg); 
+      }
+      
+      .left-btn {
+        background:rgb(223, 99, 16);
+        width:100%;
+        justify-content: center;
+          align-items: center;
+          display: flex;
+          transform: skewX(0deg); 
+      }
+
+      .left-btn-text{
+        text-align: center;
+        color: black;
+          font-size: 2vmin;
+        position: relative;
+        left: 25%;
+        transform: skewX(0deg);
+        word-wrap: break-word; /* Starsza wersja */
+    overflow-wrap: break-word; /* Nowsza wersja */
+    white-space: normal; /* lub pre-wrap */
+      }
+      
+      .right-btn-text {
+        text-align: center;
+        color: black;
+        font-size: 2vmin;
+        position: relative;
+        right: 25%;
+        transform: skewX(0deg); 
+        word-wrap: break-word; /* Łamanie słów w przypadku wydłużenia tekstu */
+      }
+
+}
+
