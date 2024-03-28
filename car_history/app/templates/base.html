@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+	<title>Makieta strony</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'styles2.css' %}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="color1">
+
+	<header class="menu-panel">
+		<div class="logo-box">	
+			<img src="{% static 'logov.svg' %}" type="image/svg+xml" alt="Logo firmy" class="menu-logo">
+		</div>
+		<div class="menu-button-container">
+			<a class="menu-button" href="{% url 'home' %}">Strona główna</a>
+			<a class="menu-button" href="{% url 'contact' %}">Kontakt</a>
+			<a class="menu-button" href="{% url 'information' %}">O firmie</a>
+			<a class="menu-button" href="{% url 'workshop_login' %}">Strefa dla warsztatu</a>
+		</div>
+	</header>
+	
+	{% block content %}{% endblock %}
+	
+	
+</body>
+
+</html>
