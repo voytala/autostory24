@@ -1,0 +1,20 @@
+<!-- templates/login_workshop.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="workshop-form">
+    <h2>Dodaj naprawę</h2>
+    <form method="post" action="{% url 'workshop_panel' %}">
+        {% csrf_token %}
+        {{ form.repair_description.label_tag }} {{ form.repair_description }}
+        {{ form.vin_number.label_tag }} {{ form.vin_number }}
+        {{ form.mileage.label_tag }} {{ form.mileage }}
+        {{ form.repair_date.label_tag }} {{ form.repair_date }}
+        {{ form.repair_time.label_tag }} {{ form.repair_time }}
+        <input type="submit" value="Dodaj naprawę">
+    </form>
+
+</div>
+{% endblock %}
+
+

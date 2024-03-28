@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="app">
+	
+	<div class="left">
+		
+	</div>
+	<div class="center">
+		<div class="title">
+		Elektroniczna książka serwisowa Twojego pojazdu
+		</div>
+		<div class="vin-form">
+			<div class="info-icon" title="Vin - numer identyfikacyjny pojazdu, nadany i umieszczony przez producenta, składa się z 17 znaków cyfr, liter z wyłączeniem liter O, I oraz Q. Znaleźć go można w dowodzie rejestracyjnym w rubryce oznaczonej literą E oraz na podszybiu pojazdu.">
+				i
+			</div>
+			<form method="post" action="{% url 'home' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="generate-btn">Generuj raport</button>
+            </form>
+         </div>
+	</div>
+	<div class="right">
+		
+	</div>
+	
+</div>
+<div class="registration">
+	<div id="btn_cont">
+
+
+	  <div class="btn left-btn" onclick="window.location='{% url 'register_vehicle' %}'">
+		<div class="left-btn-text">
+		  <h1>Zarejestruj pojazd</h1>
+		</div> 
+	  </div>
+
+	   <div class="btn right-btn" onclick="window.location='{% url 'register_workshop' %}'">
+            <div class="right-btn-text">
+                <h1>Zarejestruj warsztat</h1>
+            </div>
+       </div>
+</div>
+{% endblock %}

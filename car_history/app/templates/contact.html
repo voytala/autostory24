@@ -1,0 +1,15 @@
+<!-- contact.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="workshop-form">
+  <h2>Skontaktuj się z nami</h2>
+  <form method="post" action="{% url 'contact' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Wyślij</button>
+  </form>
+</div>
+
+{% endblock %}
+

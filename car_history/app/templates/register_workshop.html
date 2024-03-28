@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="workshop-form">
+    <h2 class="wr_h2">Formularz Rejestracji Warsztatów</h2>
+    <form method="post" action="{% url 'register_workshop' %}">
+        {% csrf_token %}
+        {% if error_message %}
+          <p>{{ error_message }}</p>
+        {% endif %}
+        {{ form.as_p }}
+
+        <button type="submit">Zarejestruj się</button>
+        
+    </form>
+</div>
+{% endblock %}

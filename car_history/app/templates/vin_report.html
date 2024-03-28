@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Informacje o pojeździe -->
+<div class="report">
+    <div class="vehicle-info">
+        <h2>Informacje o Pojeździe</h2>
+        <div class="vin-report">
+            <p>VIN: {{ vin_number }}</p>
+        </div>
+        <div class="brand-report">
+            <p>Marka: {{ vehicle.brand }}</p>
+        </div>
+        <div class="model-report">
+            <p>Model: {{ vehicle.model }}</p>
+        </div>
+        <div class="color-report">
+            <p>Kolor: {{ vehicle.color }}</p>
+        </div>
+        <div class="production-report">
+            <p>Rok Produkcji: {{ vehicle.production_year }}</p>
+        </div>
+    </div>
+
+    <!-- Raport serwisowy -->
+    <div class="repair-report">
+        <h2>Raport Serwisowy</h2>
+        <ul>
+            {% for repair in repairs %}
+            <div class="repair">
+                
+                    <div class="repair-date">
+                        <strong>Data Naprawy:</strong> {{ repair.repair_date }} {{ repair.repair_time }}<br>
+                    </div>
+                    <div class="repair-service">
+                        <strong>Opis Naprawy:</strong> {{ repair.repair_description }}<br>
+                    </div>
+                    <div class="repair-mile">
+                        <strong>Przebieg:</strong> {{ repair.mileage }} km
+                    </div>
+                    <div class="repair-workshop">
+                        <p><strong>Warsztat:</strong> {{ repair.workshop.name }}</p>  <!-- Dodane pole z nazwą warsztatu -->
+                    </div>
+                
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

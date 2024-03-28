@@ -1,0 +1,12 @@
+<!-- templates/register_vehicle_success.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="wr_h2">Rejestracja pojazdu zakończona pomyślnie!</h2>
+  
+  <div class="buttons-container">
+    <a href="{% url 'register_vehicle' %}"><button>Zarejestruj kolejny pojazd</button></a>
+  </div>
+{% endblock %}
+

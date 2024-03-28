@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="workshop-form">
+    <h2 class="wr_h2">Formularz Rejestracji Pojazdu</h2>
+    <form method="post" action="{% url 'register_vehicle' %}">
+      {% csrf_token %}
+      {% if form.errors %}
+        {% if form.vin_number.errors %}
+            <p style="color: red;">{{ form.vin_number.errors }}</p>
+        {% endif %}
+    {% endif %}
+      {{ form.vin_number.label_tag }}
+      {{ form.vin_number }}
+
+      {{ form.brand.label_tag }}
+      {{ form.brand }}
+
+      {{ form.model.label_tag }}
+      {{ form.model }}
+
+      {{ form.production_year.label_tag }}
+      {{ form.production_year }}
+
+      {{ form.fuel_type.label_tag }}
+      {{ form.fuel_type }}
+
+      {{ form.engine_capacity.label_tag }}
+      {{ form.engine_capacity }}
+
+      {{ form.color.label_tag }}
+      {{ form.color }}
+
+      <button type="submit">Zarejestruj pojazd</button>
+    </form>
+  </div>
+{% endblock %}
